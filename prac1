@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        int yuan;
+        double roubles;
+        final double ROUBLES_PER_YUAN = 11.91;
+        String kon_china = "их", kon_yuan = "ей";
+        System.out.print("введите количество юаней: ");
+        yuan = input.nextInt();
+        if (yuan > 0)
+        {
+            if (yuan % 10 == 1)
+                {
+                   if (yuan != 11)
+                   {
+                       kon_china = "ий";
+                       kon_yuan = "ь";
+                   }
+                }
+            else if ((yuan % 10 < 5) && (yuan % 10 > 1))
+            {
+                if ((yuan != 11) && (yuan != 12) && (yuan != 14) && (yuan != 13))
+                {
+                    kon_china = "их";
+                    kon_yuan = "я";
+                }
+            }
+            roubles = ROUBLES_PER_YUAN * yuan;
+            System.out.print(yuan + " китайск" + kon_china + " юан" + kon_yuan + " это " + roubles + " рублей");
+        }
+        else
+        {
+            System.out.print("конвертация невозможна, т.к. количество юаней меньше или равно нулю");
+        }
+    }
+}
